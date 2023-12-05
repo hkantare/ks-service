@@ -1,7 +1,6 @@
 resource null_resource auditlog_activation {
 provisioner local-exec {
 command = <<BASH
-ibmcloud plugin install ./bin/container-service-linux-amd64-1.0.579 -f
 service="auditlog--ibmcloud-kube-audit"
 ibmcloud ks cluster ca get -c --output json | jq -r .caCert | base64 -d > caCert.crt
 read -r client_cert client_key <<< $(kubectl config view --minify | grep 'client-certificate|client-key' | awk -F':' '{print $2}' | tr -s '\n' ' ')
