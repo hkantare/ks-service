@@ -18,8 +18,8 @@ KUBECONFIG = var.kube_config_path
 }
 }
 
-var "kube_config_path" {
+variable "kube_config_path" {
 }
 
-var "audit_namespaces" {
+variable "audit_namespaces" {
 }
